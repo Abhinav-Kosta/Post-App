@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="card fix">
+        <form method="post" action="/posts/new">
+            <h3>Image</h3>
+            <textarea placeholder="Enter image Url" name="imageUrl" id="txtc"></textarea>
+    
+            <h3>Caption</h3>
+            <input type="text" placeholder="Enter Caption" name="caption" id="txtc">
+            
+            <h3>Content</h3>
+            <textarea name="content" placeholder="Enter description" id="txtc"></textarea>
+
+            <br>
+
+            <button>Create</button>
+        </form>
+    </div>
+</body>
+</html>

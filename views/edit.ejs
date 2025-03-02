@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="card fix">
+        <h3>Caption</h3>
+        <p id="ctext"><i><b><%= post.caption %></b></i></p>
+    
+        <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+            <h3>Image</h3>
+            <textarea name="imageUrl" id="txtb"><%=post.imageUrl%></textarea>
+    
+            <h3>Content</h3>
+                <textarea name="content" id="txtb"><%=post.content%></textarea>
+            
+            <h4>Comments</h4>
+                <% for(let comment of post.comments){ %>
+                    <!-- <h4>ID: %= comment.id %></h4> -->
+                    <textarea name="description[]" id="txtb"><%= comment.description %></textarea>
+                    <input type="hidden" name="commentId[]" value="<%= comment.id %>">
+                <% } %>
+                <br>
+                <button>Save</button>
+        </form>
+    </div>
+    <form method="get" action="/posts">
+        <button id="btn-ist">Back</button>
+    </form>
+</body>
+</html>

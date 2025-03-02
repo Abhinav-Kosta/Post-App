@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="card fix">
+        <img src="<%=post.imageUrl%>" alt="loading">
+
+        <h3>Caption</h3>
+        <p><i><%= post.caption %></i></p>
+    
+        <h3>Content</h3>
+        <p><%=post.content%></p>
+    
+        <h4>Comments</h4>
+        <% for(comment of post.comments){ %>
+            <p><%= comment.description %></p>
+            <form method="post" action="/posts/comments/<%=comment.id%>?_method=DELETE">
+                <input type="hidden" name="postId" value="<%=post.id%>">
+                <button>Delete Comment</button>
+            </form>
+        <% } %>   
+    </div>
+
+    <form method="post" action="/posts/<%=post.id%>/comments">
+        <textarea name="description" placeholder="Add your comment here" id="txta"></textarea>
+        <br>
+        <button id="btn-ist">Add Comment</button>
+    </form>
+
+    <form method="get" action="/posts">
+        <button id="btn-ist">Back</button>
+    </form>
+</body>
+</html>

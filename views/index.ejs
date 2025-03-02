@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Your Memories</h1>
+
+    <div class="card-container">
+        <% for(post of posts){ %>
+            <div class="card">
+                <img src="<%=post.imageUrl%>" alt="loading">
+                
+                <div class="card-content">
+                    <h3 class="head">Caption</h3>
+                    <p><i><%= post.caption %></i></p>
+        
+                    <h3 class="head">Content</h3>
+                    <p><%=post.content%></p>
+                    
+                    <h4 class="head">Comments</h4>
+                    <% for(post.comment of post.comments){ %>
+                        <p><%= post.comment.description %></p>
+                    <% } %>
+                </div>
+    
+                <div class="index-card-button">
+                    <form method="get" action="/posts/<%=post.id%>">
+                        <button>Show</button>
+                    </form>
+                    <form method="get" action="/posts/<%=post.id%>/edit">
+                        <button>Edit</button>
+                    </form>
+                    <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <br><br>
+
+    <form method="get" action="/posts/new">
+        <button id="btn-ist">Create</button>
+    </form>
+</body>
+</html>

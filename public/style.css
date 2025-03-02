@@ -1,0 +1,119 @@
+body {
+    /* background-color: #E6F2FF; */
+    /* background-color: #F5F5F5; */
+    background-color: #FFF3E6;
+    text-align: center;
+    color: #333333;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+
+.card {
+    background-color: #ffa8B6;
+    height: 600px;
+    width: 300px;
+    border: 5px solid #333333;
+    margin: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-content{
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.head {
+    color:#333333;
+}
+
+.index-card-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: sticky;
+    bottom: 0;
+    padding: 10px;
+}
+
+button {
+    margin-top: 20px;
+    
+    padding: 12px 24px;                  /* Enlarges the button */
+    font-size: 16px;                     /* Makes text bigger */
+    border-radius: 30px;                 /* More rounded corners */
+    background-color: #F5F5F5;         /* Custom background color */
+    color: #333333;                    /* Custom text color */
+    border: none;                        /* Removes default border */
+    cursor: pointer;                     /* Changes cursor on hover */
+    transition: all 0.3s ease-in-out;    /* Smooth animation */
+}
+
+button:hover {
+    background-color: #E63950;
+    transform: scale(1.05);
+}
+
+#btn-ist {
+    background-color: #333333;
+    color : #F5F5F5;
+}
+
+#btn-ist:hover{
+    background-color: #E63950;
+    transform: scale(1.05);
+}
+
+.fix {
+    margin: auto;
+}
+
+#txta {
+    margin-top: 20px;
+    width: 200px;
+    height: 100px;
+    background-color: #ffa8B6;
+    border: 4px solid #333333;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#txtb {
+    margin-top: 5px;
+    width: 250px;
+    height: 60px;
+    background-color: #F5F5F5;
+    border: 4px solid #333333;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#txtc {
+    margin-top: 5px;
+    width: 250px;
+    height: 100px;
+    background-color: #F5F5F5;
+    border: 4px solid #333333;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#ctext {
+    color : #333333;
+    font-size: larger;
+}

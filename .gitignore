@@ -24,3 +24,6 @@ yarn.lock
 .vscode/
 .idea/
 *.swp
+
+#Ignore my word file as well
+updMultiComment.docx

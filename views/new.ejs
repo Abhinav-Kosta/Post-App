@@ -4,24 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Post</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css">
 </head>
 <body>
-    <div class="card fix">
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/posts" class="navbar-brand">Insta App</a>
+            <button class="menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="/posts/new" class="btn btn-primary">Create Post</a>
+                <button class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <h2>Create New Post</h2>
         <form method="post" action="/posts/new">
+<<<<<<< HEAD
             <h3>Image</h3>
             <textarea placeholder="Enter browser image address" name="imageUrl" id="txtc"></textarea>
     
             <h3>Caption</h3>
             <input type="text" placeholder="Enter Caption" name="caption" id="txtc">
+=======
+            <div class="form-group">
+                <label class="form-label">Image URL</label>
+                <input 
+                    type="text" 
+                    placeholder="Enter image URL" 
+                    name="imageUrl" 
+                    class="form-input"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Caption</label>
+                <input 
+                    type="text" 
+                    placeholder="Enter caption" 
+                    name="caption" 
+                    class="form-input"
+                    required
+                >
+            </div>
+>>>>>>> 4fc931d (Improved Styling)
             
-            <h3>Content</h3>
-            <textarea name="content" placeholder="Enter description" id="txtc"></textarea>
+            <div class="form-group">
+                <label class="form-label">Content</label>
+                <textarea 
+                    name="content" 
+                    placeholder="Enter description" 
+                    class="form-input"
+                    rows="4"
+                    required
+                ></textarea>
+            </div>
 
-            <br>
-
-            <button>Create</button>
+            <div class="post-actions">
+                <button class="btn btn-primary">Create Post</button>
+                <a href="/posts" class="btn btn-secondary">Cancel</a>
+            </div>
         </form>
     </div>
+
+    <script src="/theme.js"></script>
+    <script src="/menu.js"></script>
 </body>
 </html>

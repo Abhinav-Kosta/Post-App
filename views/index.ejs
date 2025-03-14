@@ -4,48 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insta App</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css">
 </head>
 <body>
-    <h1>Your Memories</h1>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/posts" class="navbar-brand">Insta App</a>
+            <button class="menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="/posts/new" class="btn btn-primary">Create Post</a>
+                <button class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <div class="card-container">
+    <div class="posts-container">
         <% for(post of posts){ %>
-            <div class="card">
-                <img src="<%=post.imageUrl%>" alt="loading">
+            <div class="post-card">
+                <img src="<%=post.imageUrl%>" alt="Post image" class="post-image">
                 
-                <div class="card-content">
-                    <h3 class="head">Caption</h3>
-                    <p><i><%= post.caption %></i></p>
-        
-                    <h3 class="head">Content</h3>
-                    <p><%=post.content%></p>
+                <div class="post-content">
+                    <h3 class="post-caption"><%= post.caption %></h3>
+                    <p class="post-text"><%=post.content%></p>
                     
-                    <h4 class="head">Comments</h4>
-                    <% for(post.comment of post.comments){ %>
-                        <p><%= post.comment.description %></p>
-                    <% } %>
-                </div>
-    
-                <div class="index-card-button">
-                    <form method="get" action="/posts/<%=post.id%>">
-                        <button>Show</button>
-                    </form>
-                    <form method="get" action="/posts/<%=post.id%>/edit">
-                        <button>Edit</button>
-                    </form>
-                    <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
-                        <button>Delete</button>
-                    </form>
+                    <div class="comments-section">
+                        <h4>Comments</h4>
+                        <% for(post.comment of post.comments){ %>
+                            <div class="comment">
+                                <p><%= post.comment.description %></p>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="post-actions">
+                        <form method="get" action="/posts/<%=post.id%>">
+                            <button class="btn btn-primary">View</button>
+                        </form>
+                        <form method="get" action="/posts/<%=post.id%>/edit">
+                            <button class="btn btn-secondary">Edit</button>
+                        </form>
+                        <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                            <button class="btn btn-secondary">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         <% } %>
     </div>
 
-    <br><br>
-
-    <form method="get" action="/posts/new">
-        <button id="btn-ist">Create</button>
-    </form>
+    <script src="/theme.js"></script>
+    <script src="/menu.js"></script>
 </body>
 </html>

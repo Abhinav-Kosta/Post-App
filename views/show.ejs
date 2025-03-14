@@ -4,36 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Detail</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css">
 </head>
 <body>
-    <div class="card fix">
-        <img src="<%=post.imageUrl%>" alt="loading">
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/posts" class="navbar-brand">Insta App</a>
+            <button class="menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="/posts/new" class="btn btn-primary">Create Post</a>
+                <button class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-        <h3>Caption</h3>
-        <p><i><%= post.caption %></i></p>
-    
-        <h3>Content</h3>
-        <p><%=post.content%></p>
-    
-        <h4>Comments</h4>
-        <% for(comment of post.comments){ %>
-            <p><%= comment.description %></p>
-            <form method="post" action="/posts/comments/<%=comment.id%>?_method=DELETE">
-                <input type="hidden" name="postId" value="<%=post.id%>">
-                <button>Delete Comment</button>
+    <div class="post-detail">
+        <div class="post-card">
+            <img src="<%=post.imageUrl%>" alt="Post image" class="post-image">
+            
+            <div class="post-content">
+                <h3 class="post-caption"><%= post.caption %></h3>
+                <p class="post-text"><%=post.content%></p>
+                
+                <div class="comments-section">
+                    <h4>Comments</h4>
+                    <% for(comment of post.comments){ %>
+                        <div class="comment">
+                            <p><%= comment.description %></p>
+                            <form method="post" action="/posts/comments/<%=comment.id%>?_method=DELETE">
+                                <input type="hidden" name="postId" value="<%=post.id%>">
+                                <button class="btn btn-secondary">Delete Comment</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form method="post" action="/posts/<%=post.id%>/comments">
+                <div class="form-group">
+                    <textarea 
+                        name="description" 
+                        placeholder="Add your comment here" 
+                        class="form-input"
+                        rows="4"
+                    ></textarea>
+                </div>
+                <button class="btn btn-primary">Add Comment</button>
             </form>
-        <% } %>   
+        </div>
+
+        <div class="post-actions">
+            <a href="/posts" class="btn btn-secondary">Back to Posts</a>
+        </div>
     </div>
 
-    <form method="post" action="/posts/<%=post.id%>/comments">
-        <textarea name="description" placeholder="Add your comment here" id="txta"></textarea>
-        <br>
-        <button id="btn-ist">Add Comment</button>
-    </form>
-
-    <form method="get" action="/posts">
-        <button id="btn-ist">Back</button>
-    </form>
+    <script src="/theme.js"></script>
+    <script src="/menu.js"></script>
 </body>
 </html>

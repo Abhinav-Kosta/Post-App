@@ -4,32 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css">
 </head>
 <body>
-    <div class="card fix">
-        <h3>Caption</h3>
-        <p id="ctext"><i><b><%= post.caption %></b></i></p>
-    
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/posts" class="navbar-brand">Insta App</a>
+            <button class="menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="/posts/new" class="btn btn-primary">Create Post</a>
+                <button class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <h2>Edit Post</h2>
+        <div class="post-content">
+            <h3 class="post-caption"><%= post.caption %></h3>
+        </div>
+
         <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
-            <h3>Image</h3>
-            <textarea name="imageUrl" id="txtb"><%=post.imageUrl%></textarea>
-    
-            <h3>Content</h3>
-                <textarea name="content" id="txtb"><%=post.content%></textarea>
+            <div class="form-group">
+                <label class="form-label">Image URL</label>
+                <input 
+                    type="text" 
+                    name="imageUrl" 
+                    class="form-input"
+                    value="<%=post.imageUrl%>"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Content</label>
+                <textarea 
+                    name="content" 
+                    class="form-input"
+                    rows="4"
+                    required
+                ><%=post.content%></textarea>
+            </div>
             
-            <h4>Comments</h4>
+            <div class="comments-section">
+                <h4>Edit Comments</h4>
                 <% for(let comment of post.comments){ %>
-                    <!-- <h4>ID: %= comment.id %></h4> -->
-                    <textarea name="description[]" id="txtb"><%= comment.description %></textarea>
-                    <input type="hidden" name="commentId[]" value="<%= comment.id %>">
+                    <div class="comment">
+                        <textarea 
+                            name="description[]" 
+                            class="form-input"
+                            rows="2"
+                            required
+                        ><%= comment.description %></textarea>
+                        <input type="hidden" name="commentId[]" value="<%= comment.id %>">
+                    </div>
                 <% } %>
-                <br>
-                <button>Save</button>
+            </div>
+
+            <div class="post-actions">
+                <button class="btn btn-primary">Save Changes</button>
+                <a href="/posts" class="btn btn-secondary">Cancel</a>
+            </div>
         </form>
     </div>
-    <form method="get" action="/posts">
-        <button id="btn-ist">Back</button>
-    </form>
+
+    <script src="/theme.js"></script>
+    <script src="/menu.js"></script>
 </body>
 </html>

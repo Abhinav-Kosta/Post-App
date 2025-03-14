@@ -134,6 +134,6 @@ This project is licensed under the ISC License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+Abhinav Kosta - [@Abhinav Kosta](https://www.linkedin.com/in/abhinav-kosta-188987304/) - abhinavkosta03@gmail.com
 
-Project Link: [https://github.com/yourusername/insta-app](https://github.com/yourusername/insta-app)
+Project Link: [https://github.com/Abhinav-Kosta/Post-App](https://github.com/Abhinav-Kosta/Post-App)
